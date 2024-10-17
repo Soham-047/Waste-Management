@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+# import os
+# # Add these at the top of your settings.py
+# import dj_database_url
+# from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'akbar.apps.AkbarConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -73,13 +79,34 @@ WSGI_APPLICATION = 'tipusultan.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Replace the DATABASES section of your settings.py with this
+# DATABASE_URL = 'postgresql://neondb_owner:svL0S3AgOeTx@ep-divine-water-a8gx95z0.eastus2.azure.neon.tech/neondb?sslmode=require'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",  # or os.path.join(BASE_DIR, "db.sqlite3") in older versions
     }
 }
 
+# from os import getenv
+# from dotenv import load_dotenv
+
+# parsed_url = urlparse(DATABASE_URL)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': parsed_url.path[1:],  # Remove leading '/' from path
+#         'USER': parsed_url.username,
+#         'PASSWORD': parsed_url.password,
+#         'HOST': parsed_url.hostname,
+#         'PORT': parsed_url.port,
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -111,7 +138,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+# postgresql://saidb_owner:C5BegANb2Ysl@ep-ancient-wind-a1s1ws30.ap-southeast-1.aws.neon.tech/saidb?sslmode=require
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
