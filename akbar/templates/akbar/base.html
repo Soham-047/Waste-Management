@@ -2,228 +2,374 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock %}</title>
-    <style>
-      /* Global body styles */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        height: 100vh; /* Ensure the height is full-screen */
-      }
 
-      /* Styling for the header */
-      header {
-        background-color: #363736b1;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        height: 30px;
-        
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    /* Global body styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #CBF1F5;
 
-      /* Navigation bar styling */
-      nav {
-        margin-top: 10px;
-
-      }
-
-      nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-      }
-
-      nav ul li {
-        margin: 0 15px;
-      }
-
-      nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 10px 15px;
-      }
-
-      nav ul li a:hover {
-        background-color: #555;
-        border-radius: 5px;
-      }
-
-      /* Main container styles */
-      main {
-        display: flex;
-        flex-grow: 1; /* Makes the content area grow to fill the available space */
-        padding: 20px;
-      }
-
-      /* Content block styling */
-      .block {
-        width: 60%;
-        margin-right: 20px; /* Add some space between the content and the news section */
-      }
-
-      /* Fixed news section styling */
-      #news {
-        width: 30%;
-        background-color: #f0f0f0;
-        position: fixed;
-        top: 100px; /* Account for the header height */
-        right: 0;
-        height: calc(100% - 100px); /* Full height minus header */
-        padding: 20px;
-        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
-      }
-      .vids {
-        display: flex;
-        width: 60%;
-        flex-wrap: wrap; /* Allows the items to wrap if necessary */
-        justify-content: center;
-        gap: 20px; /* Adds space between video iframes */
-        margin-top: 20px;
-      }
-
-      .vids iframe {
-        flex: 1 1 calc(50% - 20px); /* Each iframe takes 50% of the width minus the gap */
-        max-width: 48%; /* Max 48% width to fit two videos side by side */
-        height: 230px; /* Set the height for each iframe */
-        border-radius:20px;
-      }
-
-      /* Styling for the h2 inside the news section */
-      #news h2 {
-        margin-top: 0;
-      }
-      .icon{
-        width: 40px;
-        height: 30px;
-      }
-      .ct
-      {
-        margin-top: 10px;
-      }
-    </style>
-    {% block style %}{% endblock %}
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><img class="icon" src="https://cdn-icons-png.flaticon.com/512/8134/8134448.png" alt=""></li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li>{% block log %}{% endblock %}</li>
-        </ul>
-      </nav>
-    </header>
-    {% block greet %}{% endblock %}
-    <main>
-      <div>
-        <div class="block">
-          {% block content %}
-          {% endblock %}
-        </div>
-        <div >
-          <div class="vids">
-            <iframe width="320" height="230" src="https://www.youtube.com/embed/Qyu-fZ8BOnI" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-            </iframe>
-            <iframe width="320" height="230" src="https://www.youtube.com/embed/29OFyXJC_uA" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-            </iframe>
-            <iframe width="320" height="230" src="https://www.youtube.com/embed/3FEywMvpUeA" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-            </iframe>
-            <iframe width="320" height="230" src="https://www.youtube.com/embed/dq7bBZUFR14" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-            </iframe>
-        </div>
-        </div>
-      </div>
-      <div class="block" id="news">
-        <h2>News</h2>
-        <div class="ct" id="changingText1">News for Watste Management</div>
-        <div class="ct" id="changingText2">Waste should be properly Disposed</div>
-        <div class="ct" id="changingText3">Segregation of Waste is important.</div>
-        <div class="ct" id="changingText4">Pollution must be reduced.</div>
-        <div class="ct" id="changingText5">Electrical waste should be properly disposed.</div>
-      
-    <script>
-        // Array of texts to cycle through
-        const texts = [
-            "News for Watste Management",
-            "Waste should be properly Disposed",
-            "Segregation of Waste is important.",
-            "Pollution must be reduced.!",
-            "Electrical waste should be properly disposed."
-        ];
-        const texts4 = [
-          "Waste should be properly Disposed",
-          "Segregation of Waste is important.",
-          "Pollution must be reduced.!",
-          "Electrical waste should be properly disposed.",
-          "News for Watste Management",
-        ];
-        const texts3 = [
-          "Segregation of Waste is important.",
-          "Pollution must be reduced.!",
-          "Electrical waste should be properly disposed.",
-          "News for Watste Management",
-          "Waste should be properly Disposed",
-        ];
-        const texts1 = [
-          "Pollution must be reduced.!",
-          "Electrical waste should be properly disposed.",
-          "News for Watste Management",
-          "Waste should be properly Disposed",
-          "Segregation of Waste is important.",
-        ];
-        const texts2 = [
-          "Electrical waste should be properly disposed.",
-            "News for Watste Management",
-            "Waste should be properly Disposed",
-            "Segregation of Waste is important.",
-            "Pollution must be reduced.!",
-        ];
-        let index = 0;
-        let count = 0; // Counter for how many times the interval has executed
-const maxCount = 5; // Set the maximum number of executions
-
-const intervalId = setInterval(() => {
-    if (count < maxCount) {
-        index = (index + 1) % texts.length; 
-        document.getElementById("changingText1").innerText = texts[index];
-        document.getElementById("changingText2").innerText = texts1[index];
-        document.getElementById("changingText3").innerText = texts2[index];
-        document.getElementById("changingText4").innerText = texts3[index];
-        document.getElementById("changingText5").innerText = texts4[index];
-        
-        count++; // Increment the counter
-    } else {
-        clearInterval(intervalId); // Clear the interval after 5 executions
+      /* Ensure the height is full-screen */
     }
-}, 5000);
 
-    </script>
+    /* Styling for the header */
+    header {
+      background-color: #A6E3E9;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      /* Use flexbox to control alignment */
+      justify-content: center;
+      /* Center the navigation items */
+      align-items: center;
+      /* Center items vertically */
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      /* Center the list items */
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    /* Specific style for the heading */
+    .web_head {
+      position: absolute;
+      /* Position it absolutely */
+      left: 80px;
+      /* Align it to the left */
+      top: 20px;
+      /* Align it vertically within the header */
+      margin: 0;
+      /* Remove default margin */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      color: black;
+      /* Set the link color here instead of inline */
+    }
+
+
+    /* nav ul li a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    } */
+
+    /* Main container styles */
+    main {
+      display: flex;
+      flex-grow: 1;
+      /* Makes the content area grow to fill the available space */
+      padding: 20px;
+    }
+
+    /* Content block styling */
+    .block {
+      width: 60%;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      /* Add some space between the content and the news section */
+    }
+
+    /* Fixed news section styling */
+    #news {
+      width: 30%;
+      background-color: #d8f1f1;
+      position: fixed;
+      top: 120px;
+      /* Account for the header height */
+      right: 0;
+      height: calc(100% - 200px);
+      /* Full height minus header */
+      padding: 20px;
+      box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .vids {
+      display: flex;
+      width: 60%;
+      flex-wrap: wrap;
+      /* Allows the items to wrap if necessary */
+      justify-content: center;
+      gap: 20px;
+      /* Adds space between video iframes */
+
+      /* padding-top: 1.2rem; */
+    }
+
+    .yt_head {
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      margin-left: 220px;
+      font-weight: bold;
+      font-size: xx-large;
+    }
+
+    .vids iframe {
+      flex: 1 1 calc(50% - 20px);
+      /* Each iframe takes 50% of the width minus the gap */
+      max-width: 48%;
+      /* Max 48% width to fit two videos side by side */
+      height: 230px;
+      /* Set the height for each iframe */
+      border-radius: 20px;
+    }
+
+    /* Styling for the h2 inside the news section */
+    #news h2 {
+      margin-top: 0;
+    }
+
+    .icon {
+      width: 40px;
+      height: 30px;
+    }
+
+    .ct {
+      margin-top: 10px;
+    }
+
+    .text-strip {
+      background-color: #a0c4d0;
+      /* Background color for the text strip */
+      overflow: hidden;
+      /* Hide overflow */
+      white-space: nowrap;
+      /* Prevent text from wrapping */
+      position: relative;
+      /* Positioning context for absolute elements */
+      height: 40px;
+      /* Height of the text strip */
+    }
+
+    .marquee {
+      /* Add a solid border to the top */
+      display: inline-block;
+      animation: marquee 15s linear infinite;
+      /* Animation for the marquee */
+      font-size: 18px;
+      /* Font size */
+      padding: 0px;
+      /* Padding for spacing */
+      color: rgb(228, 3, 3);
+      /* Text color */
+      line-height: 40px;
+      /* Align text vertically with the border */
+    }
+
+
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      /* Start from the right */
+      100% {
+        transform: translateX(-100%);
+      }
+
+      /* Move to the left */
+    }
+
+    .strip {
+      box-sizing: border-box;
+      /* Use border-box model */
+      border-top: 2px solid rgb(3, 3, 3);
+    }
+  
+
+  </style>
+  {% block style %}{% endblock %}
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <!-- <li>
+          <img class="web_head" src="{% static 'images/logo.webp' %}" alt="Logo" style="">
+      </li> -->
+        <li>
+          <h2 class="web_head"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="green" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+          </svg> स्वच्छता सारथी</h2>
+        </li>
+        <li class="navli"><a href="/" style=" color: black;">HOME</a></li>
+        <li class="navli"><a href="{% url 'contacts' %}" style=" color: black;">CONTACTS</a></li>
+        <li class="navli">{% block log %}{% endblock %}</li>
+      </ul>
+    </nav>
+    <style>
+      
+    </style>
+
+  </header>
+  <div class="strip">
+    <div class="text-strip">
+      <div class="marquee">
+        <span>Welcome to स्वच्छता सारथी | International Zero Waste Day 29th March | Global Recycling Day 18th March | Swachh Bharat Mission 2nd October</span>
       </div>
-    </main>
-  </body>
-</html>
+    </div>
 
+  </div>
+
+  {% block greet %}{% endblock %}
+
+  <main>
+    <div>
+      <div class="block">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div>
+        <div class="yt_head">
+          EDUCATIONAL VIDEOS
+        </div>
+        <div class="vids">
+          <iframe width="320" height="230" src="https://www.youtube.com/embed/Qyu-fZ8BOnI" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <iframe width="320" height="230" src="https://www.youtube.com/embed/T_pIJiZ8JYI" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+          <iframe width="320" height="230" src="https://www.youtube.com/embed/YeVLBkypPRU" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+          <iframe width="320" height="230" src="https://www.youtube.com/embed/4JDGFNoY-rQ" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+      </div>
+    </div>
+    <div class="block" id="news">
+      <div class="box">
+        <h2> NEWS </h2>
+        <div class="ct" id="changingText1">News for Waste Management</div>
+        <div class="ct" id="changingText2">Waste should be properly disposed.</div>
+        <div class="ct" id="changingText3">Segregation of Waste is important.</div>
+        <div class="ct" id="changingText4">Pollution must be reduced!</div>
+        <div class="ct" id="changingText5">Electrical waste should be properly disposed.</div>
+
+        <script>
+          // Array of texts for box 1
+          const texts1 = [
+            "News for Waste Management",
+            "Waste should be properly disposed.",
+            "Segregation of Waste is important.",
+            "Pollution must be reduced!",
+            "Electrical waste should be properly disposed."
+          ];
+
+          let index1 = 0;
+          let count1 = 0; // Counter for how many times the interval has executed
+          const maxCount1 = 5; // Set the maximum number of executions
+
+          const intervalId1 = setInterval(() => {
+            if (count1 < maxCount1) {
+              index1 = (index1 + 1) % texts1.length;
+              document.getElementById("changingText1").innerText = texts1[index1];
+              document.getElementById("changingText2").innerText = texts1[(index1 + 1) % texts1.length];
+              document.getElementById("changingText3").innerText = texts1[(index1 + 2) % texts1.length];
+              document.getElementById("changingText4").innerText = texts1[(index1 + 3) % texts1.length];
+              document.getElementById("changingText5").innerText = texts1[(index1 + 4) % texts1.length];
+
+              count1++; // Increment the counter
+            } else {
+              clearInterval(intervalId1); // Clear the interval after 5 executions
+            }
+          }, 5000);
+        </script>
+      </div>
+
+      <div class="box">
+        <h2 style="margin-top:2rem;"> BLOGS </h2>
+        <div class="ct" id="changingText6">
+          <a id="link1"
+            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
+            target="_blank" style=" color: black;">
+            Waste management practices are essential.
+          </a>
+        </div>
+        <div class="ct" id="changingText7">
+          <a id="link2"
+            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
+            target="_blank" style=" color: black;">
+            Recycling reduces landfill waste.
+          </a>
+        </div>
+        <div class="ct" id="changingText8">
+          <a id="link3"
+            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
+            target="_blank" style=" color: black;">
+            Composting can help reduce food waste.
+          </a>
+        </div>
+
+        <script>
+          // Array of texts and links
+          const texts2 = [
+            { text: "Waste management practices are essential.", link: "https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" },
+            { text: "Recycling reduces landfill waste.", link: "https://medium.com/@wasteisgold/how-to-manage-organic-waste-at-home-f24e141621f4" },
+            { text: "Composting can help reduce food waste.", link: "https://medium.com/@environmentproductdestruction/top-8-strategies-for-effective-sustainable-waste-management-623ee42e8ac8" }
+          ];
+
+          let index2 = 0;
+          const intervalId2 = setInterval(() => {
+            index2 = (index2 + 1) % texts2.length;
+
+            document.getElementById("link1").innerText = texts2[index2].text;
+            document.getElementById("link1").href = texts2[index2].link;
+
+            document.getElementById("link2").innerText = texts2[(index2 + 1) % texts2.length].text;
+            document.getElementById("link2").href = texts2[(index2 + 1) % texts2.length].link;
+
+            document.getElementById("link3").innerText = texts2[(index2 + 2) % texts2.length].text;
+            document.getElementById("link3").href = texts2[(index2 + 2) % texts2.length].link;
+          }, 5000);
+        </script>
+      </div>
+
+    </div>
+
+
+
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,12 +1,31 @@
 {% extends 'akbar/base.html' %}
 {% load socialaccount %}
 {% block title %}Waste Management Portal{% endblock %}
-{% block log %}<a href="{% provider_login_url 'google' %}">Login with Google</a>{% endblock %}
-{% block content %}
-<h1>    
-    This is home page!!
-</h1>
 
+{% block log %}
+<a href="{% provider_login_url 'google' %}" style="color: black;">LOGIN</a>
+{% endblock %}
+
+{% block content %}
+<style>
+    .description {
+        max-width: 800px; /* Set a fixed width for the paragraph */
+        margin: 20px auto; /* Center the paragraph horizontally */
+        text-align: justify; /* Justify the text for clean alignment on both sides */
+        font-size: 1.1rem; /* Adjust the font size for better readability */
+        line-height: 1.6; /* Adjust line spacing for readability */
+        font-family: 'Georgia', serif; /* Set font family */
+        font-style: italic; /* Change font style to italic */
+    }
+</style>
+
+<p class="description">
+    At <span style="font-weight: bold;">स्वच्छता सारथी</span>, we are committed to promoting sustainable waste management practices. Our mission is to
+    create a cleaner environment by providing insightful information and innovative solutions for managing waste
+    effectively. From reducing, recycling, and reusing materials to exploring new technologies in waste management, we
+    strive to educate and empower individuals and businesses to make eco-friendly decisions. Join us in our journey
+    toward a zero-waste future, where waste is not just disposed of but turned into valuable resources.
+</p>
 
 
 {% endblock %}

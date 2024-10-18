@@ -18,3 +18,6 @@ def location(request):
 def map_view(request):
     locations = DumpStats.objects.all()
     return render(request, 'akbar/map.html', {'locations': locations})
+
+def contacts(request):
+    return render(request,'akbar/contacts.html')

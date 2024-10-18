@@ -47,33 +47,51 @@
                 shadowSize: [41, 41]
             });
 
+            var car = L.icon({
+                iconUrl: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/car-mode-8876005-8010942.png?f=webp&w=256',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+
             // Define an array of locations with coordinates and descriptions
             var locations = [
-                { lat: 25.2426, lng: 86.9824, popup: 'Bhagalpur City Center' },
-                { lat: 25.2460, lng: 86.9695, popup: 'Tilka Manjhi Bhagalpur University' },
-                { lat: 25.2543, lng: 87.0007, popup: 'Bhagalpur Junction Railway Station' },
-                { lat: 25.2307, lng: 86.9804, popup: 'Ghantaghar Chowk' },
-                { lat: 25.2406, lng: 87.0213, popup: 'Barari Water Works' },
-                { lat: 25.2692, lng: 87.0331, popup: 'Vikramshila Setu (Bridge over Ganges)' },
-                { lat: 25.2565, lng: 86.9617, popup: 'Nathnagar' },
-                { lat: 25.2065, lng: 87.0207, popup: 'Kahalgaon (Near NTPC)' },
-                { lat: 25.2422, lng: 86.9865, popup: 'Adampur Area' },
-                { lat: 25.2480, lng: 87.0093, popup: 'S.M. College Bhagalpur' }
+                { lat: 25.2426, lng: 86.9829},
+                { lat: 25.2460, lng: 86.9699},
+                { lat: 25.2543, lng: 87.0010},
+                { lat: 25.2307, lng: 86.9890},
+                { lat: 25.2406, lng: 87.0219},
+                { lat: 25.2292, lng: 87.0169},
+                { lat: 25.2565, lng: 86.9617},
+                { lat: 25.2065, lng: 87.0207},
+                { lat: 25.2422, lng: 86.9865},
+                { lat: 25.2480, lng: 87.0093}
             ];
 
             // Loop through the locations array and add markers
             locations.forEach(function(location, index) {
-                var markerIcon = (index < 5) ? blueIcon : redIcon;  // First 5 markers are blue, next 5 are red
-                L.marker([location.lat, location.lng], { icon: markerIcon }).addTo(map)
-                    .bindPopup(location.popup);
-            });
+    let markerIcon;
+
+    if (index < 2) {
+        markerIcon = blueIcon; // First 5 markers are blue
+    } else if (index < 5) {
+        markerIcon = redIcon; // Next 5 markers are red
+    } else {
+        markerIcon = car; // All markers after that are car icons
+    }
+
+    L.marker([location.lat, location.lng], { icon: markerIcon }).addTo(map)
+        .bindPopup(location.popup);
+});
         });
     </script>
 
     <div class="bins">
         <ul>
-            <li>Unfilled bins: 7</li>
-            <li>Full bins: 3</li>
+            <li>Unfilled Bins: 2</li>
+            <li>Full Bins: 3</li>
         </ul>
     </div>
 
@@ -99,4 +117,24 @@
             margin: 30px;           /* Space between items */
         }
     </style>
+    <div class="bkc">
+        <h4>----Notifications----</h4>
+        <h5>Truck 1 has ILLEGALLY Dumped</h5>
+    </div>
+    <style>
+        .bkc {
+            margin-left: 17rem;
+            margin-right: 17rem;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding-bottom: 5px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        .bkc h4 {
+            text-align: center;
+        }
+    </style>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock %}
+
