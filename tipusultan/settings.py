@@ -144,6 +144,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 LOGIN_REDIRECT_URL = '/'
-
+LOGOUT_REDIRECT_URL = '/'
 # Ensure that SITE_ID is set correctly
 SITE_ID = 1

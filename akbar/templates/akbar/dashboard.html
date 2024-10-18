@@ -1,0 +1,14 @@
+{% extends 'akbar/base.html' %}
+{% load socialaccount %}
+{% block title %}Waste Management Portal{% endblock %}
+{% block log %}<a href="{% url 'logout' %}">Logout</a> {% endblock %}
+{% block greet %}
+{% if user.is_authenticated %}
+    <h2>Welcome {{ user.username }}</h2>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<h3>Check the DUMP_STATS <a href="{% url 'location' %}">HERE...</a></h3> 
+
+{% endblock %}
