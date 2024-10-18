@@ -5,10 +5,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'your_style.css' %}" />
   </head>
   <body>
-    Hello This is the base HTML file!!
-     {% block content %}
-     {% endblock %}
+    <header>
+      <h1>Welcome to the base template</h1>
+    </header>
+    <main>
+      {% block content %}
+      <!-- Content will be injected here -->
+      {% endblock %}
+    </main>
   </body>
 </html>
