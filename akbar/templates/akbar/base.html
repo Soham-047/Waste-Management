@@ -106,6 +106,10 @@
         width: 40px;
         height: 30px;
       }
+      .ct
+      {
+        margin-top: 10px;
+      }
     </style>
     {% block style %}{% endblock %}
   </head>
@@ -155,7 +159,64 @@
       </div>
       <div class="block" id="news">
         <h2>News</h2>
-        <p>Latest news will appear here...</p>
+        <div class="ct" id="changingText1">News for Watste Management</div>
+        <div class="ct" id="changingText2">Waste should be properly Disposed</div>
+        <div class="ct" id="changingText3">Segregation of Waste is important.</div>
+        <div class="ct" id="changingText4">Pollution must be reduced.</div>
+        <div class="ct" id="changingText5">Electrical waste should be properly disposed.</div>
+      
+    <script>
+        // Array of texts to cycle through
+        const texts = [
+            "News for Watste Management",
+            "Waste should be properly Disposed",
+            "Segregation of Waste is important.",
+            "Pollution must be reduced.!",
+            "Electrical waste should be properly disposed."
+        ];
+        const texts4 = [
+          "Waste should be properly Disposed",
+          "Segregation of Waste is important.",
+          "Pollution must be reduced.!",
+          "Electrical waste should be properly disposed.",
+          "News for Watste Management",
+        ];
+        const texts3 = [
+          "Segregation of Waste is important.",
+          "Pollution must be reduced.!",
+          "Electrical waste should be properly disposed.",
+          "News for Watste Management",
+          "Waste should be properly Disposed",
+        ];
+        const texts1 = [
+          "Pollution must be reduced.!",
+          "Electrical waste should be properly disposed.",
+          "News for Watste Management",
+          "Waste should be properly Disposed",
+          "Segregation of Waste is important.",
+        ];
+        const texts2 = [
+          "Electrical waste should be properly disposed.",
+            "News for Watste Management",
+            "Waste should be properly Disposed",
+            "Segregation of Waste is important.",
+            "Pollution must be reduced.!",
+        ];
+        
+
+        let index = 0; // Current index in the array
+
+        // Function to change the text every 5 seconds
+        setInterval(() => {
+            index = (index + 1) % texts.length; 
+            let x = texts.length;// Cycle through the array
+            document.getElementById("changingText1").innerText = texts[index];
+            document.getElementById("changingText2").innerText = texts1[index];
+            document.getElementById("changingText3").innerText = texts2[index];
+            document.getElementById("changingText4").innerText = texts3[index];
+            document.getElementById("changingText5").innerText = texts4[index];
+        }, 1000);
+    </script>
       </div>
     </main>
   </body>

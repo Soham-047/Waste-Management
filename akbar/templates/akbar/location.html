@@ -2,10 +2,6 @@
 
 {% block style %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-
     <style>
         #map {
             height: 500px;
@@ -13,20 +9,25 @@
         }
     </style>
 {% endblock %}
-{% block log %}<a href="{% url 'logout' %}">Logout</a> {% endblock %}
+
+{% block log %}
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
+
 {% block content %}
     <div id="map"></div>
 
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
         // Initialize the map
-        var map = L.map('map').setView([51.505, -0.09], 13);  // Coordinates and zoom level
+        var map = L.map('map').setView([25.2426, 86.9824], 13);  // Coordinates for Bhagalpur
 
         // Load and display tile layer from OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        
+
+        // Define custom marker icons
         var blueIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
@@ -61,48 +62,39 @@
 
         // Loop through the locations array and add markers
         locations.forEach(function(location, index) {
-            var markerIcon = (index < 7) ? blueIcon : redIcon;  // First 5 markers are blue, next 5 are red
+            var markerIcon = (index < 5) ? blueIcon : redIcon;  // First 5 markers are blue, next 5 are red
             L.marker([location.lat, location.lng], { icon: markerIcon }).addTo(map)
-                .bindPopup(location.popup)
-                .openPopup();
+                .bindPopup(location.popup);
         });
     </script>
+
     <div class="bins">
         <ul>
             <li>Unfilled bins: 7</li>
             <li>Full bins: 3</li>
         </ul>
     </div>
-    <style>
-        .bins ul
-        {
-            align-items: center;
-            align-content: center;
-        }
-        .bins ul li
-        {
-            display: inline;
-            margin: 30px;
-            padding: 5px;
-            padding-right: 20px;
-            padding-left: 20px;
 
-            align-items: center;
-            
+    <style>
+        #map-container {
+            position: relative;
+            overflow: hidden;
         }
+
         .bins ul {
-            list-style-type: none;    /* Remove bullet points */
-            display: flex;            /* Use Flexbox */
+            list-style-type: none;  /* Remove bullet points */
+            display: flex;          /* Use Flexbox */
             justify-content: space-around; /* Equal space between items */
-            align-items: center;      /* Center items vertically */
+            align-items: center;    /* Center items vertically */
             padding: 0;
-            margin: 0;          /* To center vertically in the view */
+            margin: 0;              /* To center vertically in the view */
         }
 
         .bins ul li {
-            font-size: 24px;           /* Increase font size */
+            font-size: 24px;        /* Increase font size */
             padding: 10px 20px;
-            border-radius: 5px;        /* Rounded corners */
+            border-radius: 5px;     /* Rounded corners */
+            margin: 30px;           /* Space between items */
         }
     </style>
 {% endblock %}
