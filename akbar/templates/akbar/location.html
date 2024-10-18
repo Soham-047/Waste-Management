@@ -19,52 +19,54 @@
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
-        // Initialize the map
-        var map = L.map('map').setView([25.2426, 86.9824], 13);  // Coordinates for Bhagalpur
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize the map
+            var map = L.map('map').setView([25.2426, 86.9824], 13);  // Coordinates for Bhagalpur
 
-        // Load and display tile layer from OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+            // Load and display tile layer from OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-        // Define custom marker icons
-        var blueIcon = L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
+            // Define custom marker icons
+            var blueIcon = L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
 
-        var redIcon = L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-        });
+            var redIcon = L.icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
 
-        // Define an array of locations with coordinates and descriptions
-        var locations = [
-            { lat: 25.2426, lng: 86.9824, popup: 'Bhagalpur City Center' },
-            { lat: 25.2460, lng: 86.9695, popup: 'Tilka Manjhi Bhagalpur University' },
-            { lat: 25.2543, lng: 87.0007, popup: 'Bhagalpur Junction Railway Station' },
-            { lat: 25.2307, lng: 86.9804, popup: 'Ghantaghar Chowk' },
-            { lat: 25.2406, lng: 87.0213, popup: 'Barari Water Works' },
-            { lat: 25.2692, lng: 87.0331, popup: 'Vikramshila Setu (Bridge over Ganges)' },
-            { lat: 25.2565, lng: 86.9617, popup: 'Nathnagar' },
-            { lat: 25.2065, lng: 87.0207, popup: 'Kahalgaon (Near NTPC)' },
-            { lat: 25.2422, lng: 86.9865, popup: 'Adampur Area' },
-            { lat: 25.2480, lng: 87.0093, popup: 'S.M. College Bhagalpur' }
-        ];
+            // Define an array of locations with coordinates and descriptions
+            var locations = [
+                { lat: 25.2426, lng: 86.9824, popup: 'Bhagalpur City Center' },
+                { lat: 25.2460, lng: 86.9695, popup: 'Tilka Manjhi Bhagalpur University' },
+                { lat: 25.2543, lng: 87.0007, popup: 'Bhagalpur Junction Railway Station' },
+                { lat: 25.2307, lng: 86.9804, popup: 'Ghantaghar Chowk' },
+                { lat: 25.2406, lng: 87.0213, popup: 'Barari Water Works' },
+                { lat: 25.2692, lng: 87.0331, popup: 'Vikramshila Setu (Bridge over Ganges)' },
+                { lat: 25.2565, lng: 86.9617, popup: 'Nathnagar' },
+                { lat: 25.2065, lng: 87.0207, popup: 'Kahalgaon (Near NTPC)' },
+                { lat: 25.2422, lng: 86.9865, popup: 'Adampur Area' },
+                { lat: 25.2480, lng: 87.0093, popup: 'S.M. College Bhagalpur' }
+            ];
 
-        // Loop through the locations array and add markers
-        locations.forEach(function(location, index) {
-            var markerIcon = (index < 5) ? blueIcon : redIcon;  // First 5 markers are blue, next 5 are red
-            L.marker([location.lat, location.lng], { icon: markerIcon }).addTo(map)
-                .bindPopup(location.popup);
+            // Loop through the locations array and add markers
+            locations.forEach(function(location, index) {
+                var markerIcon = (index < 5) ? blueIcon : redIcon;  // First 5 markers are blue, next 5 are red
+                L.marker([location.lat, location.lng], { icon: markerIcon }).addTo(map)
+                    .bindPopup(location.popup);
+            });
         });
     </script>
 
