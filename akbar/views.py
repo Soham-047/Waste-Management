@@ -5,7 +5,7 @@ def home(request):
     if request.user.is_authenticated:
         return render(request, 'akbar/dashboard.html', {'username': request.user.username})
     else:
-        return redirect(request, 'akbar/home.html')
+        return render(request, 'akbar/home.html')
 
 def logout_view(request):
     logout(request)

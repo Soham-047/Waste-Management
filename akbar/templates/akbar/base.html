@@ -19,16 +19,19 @@
 
       /* Styling for the header */
       header {
-        background-color: #333;
+        background-color: #363736b1;
         color: white;
         padding: 20px;
         text-align: center;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        height: 30px;
+        
       }
 
       /* Navigation bar styling */
       nav {
         margin-top: 10px;
+
       }
 
       nav ul {
@@ -79,10 +82,29 @@
         padding: 20px;
         box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
       }
+      .vids {
+        display: flex;
+        width: 60%;
+        flex-wrap: wrap; /* Allows the items to wrap if necessary */
+        justify-content: center;
+        gap: 20px; /* Adds space between video iframes */
+        margin-top: 20px;
+      }
+
+      .vids iframe {
+        flex: 1 1 calc(50% - 20px); /* Each iframe takes 50% of the width minus the gap */
+        max-width: 48%; /* Max 48% width to fit two videos side by side */
+        height: 230px; /* Set the height for each iframe */
+        border-radius:20px;
+      }
 
       /* Styling for the h2 inside the news section */
       #news h2 {
         margin-top: 0;
+      }
+      .icon{
+        width: 40px;
+        height: 30px;
       }
     </style>
     {% block style %}{% endblock %}
@@ -91,6 +113,7 @@
     <header>
       <nav>
         <ul>
+          <li><img class="icon" src="https://cdn-icons-png.flaticon.com/512/8134/8134448.png" alt=""></li>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
@@ -100,9 +123,35 @@
     </header>
     {% block greet %}{% endblock %}
     <main>
-      <div class="block">
-        {% block content %}
-        {% endblock %}
+      <div>
+        <div class="block">
+          {% block content %}
+          {% endblock %}
+        </div>
+        <div >
+          <div class="vids">
+            <iframe width="320" height="230" src="https://www.youtube.com/embed/Qyu-fZ8BOnI" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+            </iframe>
+            <iframe width="320" height="230" src="https://www.youtube.com/embed/29OFyXJC_uA" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+            </iframe>
+            <iframe width="320" height="230" src="https://www.youtube.com/embed/3FEywMvpUeA" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+            </iframe>
+            <iframe width="320" height="230" src="https://www.youtube.com/embed/dq7bBZUFR14" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+            </iframe>
+        </div>
+        </div>
       </div>
       <div class="block" id="news">
         <h2>News</h2>

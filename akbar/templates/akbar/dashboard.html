@@ -4,11 +4,30 @@
 {% block log %}<a href="{% url 'logout' %}">Logout</a> {% endblock %}
 {% block greet %}
 {% if user.is_authenticated %}
-    <h2>Welcome {{ user.username }}</h2>
+    <h3 class="greetmc">Welcome {{ user.username }}!!</h3>
 {% endif %}
 {% endblock %}
 {% block content %}
+<div class="dumpp">
 
-<h3>Check the DUMP_STATS <a href="{% url 'location' %}">HERE...</a></h3> 
+    <h3>Check the DUMP_STATS <a href="{% url 'location' %}">HERE...</a></h3> 
+</div>
+<style>
+    .dumpp
+    {
+        background-color: #69696976;
+        padding: 7px;
+        border-radius: 12px;
+    }
+    .greetmc
+    {
+        background-color: #69696976;
+        padding: 12px;
+        border-radius: 12px;
+        width: 52%;
+        margin-left: 15px;
+
+    }
+</style>
 
 {% endblock %}
