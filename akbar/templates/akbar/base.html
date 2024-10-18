@@ -277,7 +277,7 @@
       </div>
     </div>
     <div class="block" id="news">
-      <div class="box">
+      <!-- <div class="box">
         <h2> NEWS </h2>
         <div class="ct" id="changingText1">News for Waste Management</div>
         <div class="ct" id="changingText2">Waste should be properly disposed.</div>
@@ -314,55 +314,92 @@
             }
           }, 5000);
         </script>
-      </div>
+      </div> -->
 
-      <div class="box">
-        <h2 style="margin-top:2rem;"> BLOGS </h2>
-        <div class="ct" id="changingText6">
-          <a id="link1"
-            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
-            target="_blank" style=" color: black;">
-            Waste management practices are essential.
-          </a>
-        </div>
-        <div class="ct" id="changingText7">
-          <a id="link2"
-            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
-            target="_blank" style=" color: black;">
-            Recycling reduces landfill waste.
-          </a>
-        </div>
-        <div class="ct" id="changingText8">
-          <a id="link3"
-            href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87"
-            target="_blank" style=" color: black;">
-            Composting can help reduce food waste.
-          </a>
-        </div>
+      <!-- First Block -->
+<div class="box">
+  <h2 style="margin-top:2rem;"> NEWS </h2>
+  <div class="ct" id="changingText6">
+    <a id="link1" href="https://www.business-standard.com/india-news/will-process-3k-tonne-more-solid-waste-per-day-in-delhi-by-2026-mcd-in-sc-124101801034_1.html" target="_blank" style="color: black;">
+      3k tonne more solid waste per day
+    </a>
+  </div>
+  <div class="ct" id="changingText7">
+    <a id="link2" href="https://www.livelaw.in/top-stories/steps-taken-for-two-new-solid-waste-management-projects-delhi-municipal-corporation-tells-supreme-court-272887" target="_blank" style="color: black;">
+      Two New Solid Waste Management Projects.
+    </a>
+  </div>
+  <div class="ct" id="changingText8">
+    <a id="link3" href="https://www.businesstoday.in/technology/news/story/googles-ai-push-in-india-targets-healthcare-waste-management-and-smart-farming-450550-2024-10-18" target="_blank" style="color: black;">
+      Google’s AI push in India targets healthcare waste management, and smart farming.
+    </a>
+  </div>
+</div>
 
-        <script>
-          // Array of texts and links
-          const texts2 = [
-            { text: "Waste management practices are essential.", link: "https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" },
-            { text: "Recycling reduces landfill waste.", link: "https://medium.com/@wasteisgold/how-to-manage-organic-waste-at-home-f24e141621f4" },
-            { text: "Composting can help reduce food waste.", link: "https://medium.com/@environmentproductdestruction/top-8-strategies-for-effective-sustainable-waste-management-623ee42e8ac8" }
-          ];
+<!-- Second Block -->
+<div class="box">
+  <h2 style="margin-top:2rem;"> BLOGS </h2>
+  <div class="ct" id="changingText9">
+    <a id="link4" href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" target="_blank" style="color: black;">
+      Waste management practices are essential.
+    </a>
+  </div>
+  <div class="ct" id="changingText10">
+    <a id="link5" href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" target="_blank" style="color: black;">
+      Recycling reduces landfill waste.
+    </a>
+  </div>
+  <div class="ct" id="changingText11">
+    <a id="link6" href="https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" target="_blank" style="color: black;">
+      Composting can help reduce food waste.
+    </a>
+  </div>
+</div>
 
-          let index2 = 0;
-          const intervalId2 = setInterval(() => {
-            index2 = (index2 + 1) % texts2.length;
+<script>
+// Array of texts and links for the first block
+const texts2 = [
+  { text: "3k tonne more solid waste per day", link: "https://www.business-standard.com/india-news/will-process-3k-tonne-more-solid-waste-per-day-in-delhi-by-2026-mcd-in-sc-124101801034_1.html" },
+  { text: "Two New Solid Waste Management Projects.", link: "https://www.livelaw.in/top-stories/steps-taken-for-two-new-solid-waste-management-projects-delhi-municipal-corporation-tells-supreme-court-272887" },
+  { text: "Google’s AI push in India targets healthcare waste management, and smart farming.", link: "https://www.businesstoday.in/technology/news/story/googles-ai-push-in-india-targets-healthcare-waste-management-and-smart-farming-450550-2024-10-18" }
+];
 
-            document.getElementById("link1").innerText = texts2[index2].text;
-            document.getElementById("link1").href = texts2[index2].link;
+let index2 = 0;
+const intervalId2 = setInterval(() => {
+  index2 = (index2 + 1) % texts2.length;
 
-            document.getElementById("link2").innerText = texts2[(index2 + 1) % texts2.length].text;
-            document.getElementById("link2").href = texts2[(index2 + 1) % texts2.length].link;
+  document.getElementById("link1").innerText = texts2[index2].text;
+  document.getElementById("link1").href = texts2[index2].link;
 
-            document.getElementById("link3").innerText = texts2[(index2 + 2) % texts2.length].text;
-            document.getElementById("link3").href = texts2[(index2 + 2) % texts2.length].link;
-          }, 5000);
-        </script>
-      </div>
+  document.getElementById("link2").innerText = texts2[(index2 + 1) % texts2.length].text;
+  document.getElementById("link2").href = texts2[(index2 + 1) % texts2.length].link;
+
+  document.getElementById("link3").innerText = texts2[(index2 + 2) % texts2.length].text;
+  document.getElementById("link3").href = texts2[(index2 + 2) % texts2.length].link;
+}, 5000);
+
+// Array of texts and links for the second block
+const texts3 = [
+  { text: "Waste management practices are essential.", link: "https://medium.com/@environmentproductdestruction/sustainable-waste-management-practices-at-home-making-a-difference-7e665554a87" },
+  { text: "Recycling reduces landfill waste.", link: "https://medium.com/@wasteisgold/how-to-manage-organic-waste-at-home-f24e141621f4" },
+  { text: "Composting can help reduce food waste.", link: "https://medium.com/@environmentproductdestruction/top-8-strategies-for-effective-sustainable-waste-management-623ee42e8ac8" }
+];
+
+let index3 = 0;
+const intervalId3 = setInterval(() => {
+  index3 = (index3 + 1) % texts3.length;
+
+  document.getElementById("link4").innerText = texts3[index3].text;
+  document.getElementById("link4").href = texts3[index3].link;
+
+  document.getElementById("link5").innerText = texts3[(index3 + 1) % texts3.length].text;
+  document.getElementById("link5").href = texts3[(index3 + 1) % texts3.length].link;
+
+  document.getElementById("link6").innerText = texts3[(index3 + 2) % texts3.length].text;
+  document.getElementById("link6").href = texts3[(index3 + 2) % texts3.length].link;
+}, 5000);
+</script>
+
 
     </div>
 
